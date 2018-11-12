@@ -28,9 +28,12 @@
         %div.edit-box
           = link_to "#" do
             edit
-    %div.chat__typespace
+    %div.chat__form
       %div.chat__box
-        %form.text-box{action: "#"}
-          %input.text-box__message{type: "text", placeholder: " type message"}/
-          %input.text-box__button{type: "submit", value: "SEND"}/
+        = form_for "" do |f|
+          = f.text_field :text, id:"upload-text", placeholder: " type message"
+          %label.upload-label{for: "upload-icon"}
+            %i.fa.fa-picture-o
+            = f.file_field :image, id: "upload-icon"
+          = f.submit id:"button",value:"Send"
 
