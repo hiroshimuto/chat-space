@@ -63,11 +63,10 @@
     height:100%;
     width: calc(100vw - 300px);
     float:right;
+    position:relative;
     .chat__group{
-      display:inline-block;
-      width:100%;
+      height:131px;
       border:solid 1px #eeeeee;
-      box-sizing:border-box;
       padding:0px 40px;
       &__info{
         padding-top:35px;
@@ -87,7 +86,7 @@
         float:right;
         margin:28px 0px;
         border:solid 1px #38AEF0;
-        .box{
+        .edit-box{
           height:40px;
           margin:0px 20px;
           line-height:40px;
@@ -97,5 +96,36 @@
         }
       }
     }
+    .chat__typespace{
+      height:calc(100% - 132px);
+      .chat__box{
+        width:100%;
+        padding:20px 0px;
+        position: absolute;
+        bottom: 0;
+        background-color:#C0C0C0;
+        .text-box{
+          line-height:50px;
+          &__message{
+            height:50px;
+            margin-left: 40px;
+            border:none;
+            text-indent: 10px;
+            width:calc(100vw - 300px - 135px - 40px);
+          }
+          &__button{
+            height:50px;
+            margin-left: 15px;
+            margin-right: 40px;
+            border:none;
+            background-color:#38AEF0;
+            color:#ffffff;
+            width:80px;
+            float:right;
+          }
+        }
+      }
+    }
+
   }
 }
