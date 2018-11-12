@@ -1,5 +1,5 @@
 .wrapper{
-  width:100%;
+  width:100vw;
   height:100%;
   .notification{
     background-color:#38AEF0;
@@ -16,9 +16,9 @@
     float: left;
       &__user{
       background-color: #253141;
-      height:96px;
+      height:132px;
         .side__list{
-          padding-top: 35px;
+          padding-top: 50px;
           font-size:16px;
           font-weight:bold;
           margin:0px 20px;
@@ -26,44 +26,76 @@
       }
       &__group{
       background-color:#2f3e51;
-      height:calc(100% - 96px);
-        .side__list{
-          margin:0 20px;
-          padding-top:20px;
-          &--group{
-            font-size:15px;
-            padding-bottom: 5px;
-          }
-          &--message{
-            font-size:11px;
-            padding-bottom:40px;
-          }
-        }
+      height:calc(100% - 132px);
       }
   }
 
   .side__list{
-    &--name{
+    margin:0 20px;
+    padding-top:20px;
+    &__name{
       float:left;
     }
-    &--edit--group{
+    &__edit-group{
       float:right;
       .fa{
         color:#ffffff;
       }
     }
-    &--edit--user{
+    &__edit-user{
       float:right;
       padding-right: 10px;
       .fa{
         color:#ffffff;
       }
     }
-    &--group{
-
+    &-group{
+            font-size:15px;
+            padding-bottom: 5px;
     }
-    &--message{
+    &-message{
+      font-size:11px;
+      padding-bottom:40px;
+    }
+  }
 
+  .main{
+    height:100%;
+    width: calc(100vw - 300px);
+    float:right;
+    .chat__group{
+      display:inline-block;
+      width:100%;
+      border:solid 1px #eeeeee;
+      box-sizing:border-box;
+      padding:0px 40px;
+      &__info{
+        padding-top:35px;
+        float:left;
+        .name{
+          font-size:20px;
+          color:#333333;
+          padding-bottom:15px;
+        }
+        .member{
+          font-size:12px;
+          color:#999999;
+          height:50px;
+        }
+      }
+      &__edit{
+        float:right;
+        margin:28px 0px;
+        border:solid 1px #38AEF0;
+        .box{
+          height:40px;
+          margin:0px 20px;
+          line-height:40px;
+          a{
+            text-decoration: none;
+          }
+        }
+      }
     }
   }
 }

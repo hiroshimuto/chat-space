@@ -4,21 +4,30 @@
   %div.side
     %div.side__user
       %ul.side__list
-        %li.side__list--name Hiroshi Muto
-        %li.side__list--edit--group
+        %li.side__list__name Hiroshi Muto
+        %li.side__list__edit-group
           = link_to "#" do
             %i.fa.fa-cog
-        %li.side__list--edit--user
+        %li.side__list__edit-user
           = link_to "#" do
             %i.fa.fa-edit
     %div.side__group
       %ul.side__list
-        %li.side__list--group グループ名
-        %li.side__list--message まだメッセージはありません。
-        %li.side__list--group グループ名
-        %li.side__list--message まだメッセージはありません。
-        %li.side__list--group グループ名
-        %li.side__list--message まだメッセージはありません。
+        %li.side__list-group グループ名
+        %li.side__list-message まだメッセージはありません。
+        %li.side__list-group グループ名
+        %li.side__list-message まだメッセージはありません。
+        %li.side__list-group グループ名
+        %li.side__list-message まだメッセージはありません。
   %div.main
-    %p chat画面だよ
+    %div.chat__group
+      %div.chat__group__info
+        %p.name sampleグループ
+        %p.member MEMBER: hiroshimuto
+      %div.chat__group__edit
+        %div.box
+          = link_to "#" do
+            edit
+    %div.chat__space
+    %div.chat__box
 
