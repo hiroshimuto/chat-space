@@ -1,20 +1,20 @@
-%div.wrapper
-  %div.notification
+.wrapper
+  .notification
     %p.notice チャットグループが作成されました。
-  %div.side
+  .side
     = render "chat_side_groups"
-  %div.main
-    %div.chat__group
-      %div.chat__group__info
+  .main
+    .chat__group
+      .chat__group__info
         %p.name sampleグループ
         %p.member MEMBER: hiroshimuto
-      %div.chat__group__edit
-        %div.edit-box
+      .chat__group__edit
+        .edit-box
           = link_to "#" do
             edit
-    %div.chat__form
+    .chat__form
       = render "chat_main_space"
-      %div.chat__box
+      .chat__box
         = form_for "" do |f|
           = f.text_field :text, id:"upload-text", placeholder: " type message"
           %label.upload-label{for: "upload-icon"}
