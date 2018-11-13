@@ -1,0 +1,24 @@
+.wrapper
+  .notification
+    %p.notice チャットグループが作成されました。
+  .side
+    = render "chat_side_groups"
+  .main
+    .chat__group
+      .chat__group__info
+        %p.name sampleグループ
+        %p.member MEMBER: hiroshimuto
+      .chat__group__edit
+        .edit-box
+          = link_to "#" do
+            edit
+    .chat__form
+      = render "chat_main_space"
+      .chat__box
+        = form_for "" do |f|
+          = f.text_field :text, id:"upload-text", placeholder: " type message"
+          %label.upload-label{for: "upload-icon"}
+            %i.fa.fa-picture-o
+            = f.file_field :image, id: "upload-icon"
+          = f.submit id:"button",value:"Send"
+

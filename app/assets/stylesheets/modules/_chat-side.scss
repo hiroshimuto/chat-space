@@ -1,0 +1,57 @@
+.wrapper{
+  width:100vw;
+  height:100%;
+  .side{
+    height: 100%;
+    width: 300px;
+    color: $mainWhiteColor;
+    float: left;
+      &__user{
+      background-color: #253141;
+      height:132px;
+        .side__list{
+          padding-top: 50px;
+          font-size:16px;
+          font-weight:bold;
+          margin:0px 20px;
+        }
+      }
+      &__group{
+      background-color:#2f3e51;
+      height:calc(100% - 132px);
+      overflow: scroll;
+      }
+  }
+
+  .side__list{
+    margin:0 20px;
+    padding-top:20px;
+    &__name{
+      float:left;
+    }
+    &__edit-group{
+      float:right;
+      .fa{
+        color:$mainWhiteColor;
+      }
+    }
+    &__edit-user{
+      float:right;
+      padding-right: 10px;
+      .fa{
+        color:$mainWhiteColor;
+      }
+    }
+    &-group{
+            font-size:15px;
+            padding-bottom: 5px;
+    }
+    &-message{
+      font-size:11px;
+      padding-bottom:40px;
+    }
+  }
+
+
+
+}
