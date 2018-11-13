@@ -2,31 +2,7 @@
   %div.notification
     %p.notice チャットグループが作成されました。
   %div.side
-    %div.side__user
-      %ul.side__list
-        %li.side__list__name Hiroshi Muto
-        %li.side__list__edit-group
-          = link_to "#" do
-            %i.fa.fa-cog
-        %li.side__list__edit-user
-          = link_to "#" do
-            %i.fa.fa-edit
-    %div.side__group
-      %ul.side__list
-        %li.side__list-group グループ名
-        %li.side__list-message まだメッセージはありません。
-        %li.side__list-group グループ名
-        %li.side__list-message まだメッセージはありません。
-        %li.side__list-group グループ名
-        %li.side__list-message まだメッセージはありません。
-        %li.side__list-group グループ名
-        %li.side__list-message まだメッセージはありません。
-        %li.side__list-group グループ名
-        %li.side__list-message まだメッセージはありません。
-        %li.side__list-group グループ名
-        %li.side__list-message まだメッセージはありません。
-        %li.side__list-group グループ名
-        %li.side__list-message まだメッセージはありません。
+    = render "chat_side_groups"
   %div.main
     %div.chat__group
       %div.chat__group__info
@@ -37,37 +13,7 @@
           = link_to "#" do
             edit
     %div.chat__form
-      %div.chat__messages
-        %li.user-name
-          %p hiroshimuto
-        %li.send-time
-          %p 2018/09/01 11:11:11
-        %li.send-message
-          %p 仮入れ投稿
-        %li.user-name
-          %p hiroshimuto
-        %li.send-time
-          %p 2018/09/01 11:11:11
-        %li.send-message
-          %p 仮入れ投稿
-        %li.user-name
-          %p hiroshimuto
-        %li.send-time
-          %p 2018/09/01 11:11:11
-        %li.send-message
-          %p 仮入れ投稿
-        %li.user-name
-          %p hiroshimuto
-        %li.send-time
-          %p 2018/09/01 11:11:11
-        %li.send-message
-          %p 仮入れ投稿
-        %li.user-name
-          %p hiroshimuto
-        %li.send-time
-          %p 2018/09/01 11:11:11
-        %li.send-message
-          %p 仮入れ投稿
+      = render "chat_main_space"
       %div.chat__box
         = form_for "" do |f|
           = f.text_field :text, id:"upload-text", placeholder: " type message"
