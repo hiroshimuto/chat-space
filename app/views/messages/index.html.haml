@@ -4,8 +4,11 @@
   .main
     .chat__group
       .chat__group__info
-        %p.name sampleグループ
-        %p.member MEMBER: hiroshimuto
+        %p.name= @group.name
+        %p.member
+          MEMBERS:
+          - @group.users.each do |user|
+            = user.name
       .chat__group__edit
         .edit-box
           = link_to edit_group_path(@group) do
