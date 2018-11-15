@@ -1,0 +1,9 @@
+.chat__messages
+  %li.user-name
+    %p= message.user.name
+  %li.send-time
+    %p= message.created_at
+  %li.send-message
+    - if message.body.present?
+      %p= message.body
+    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
