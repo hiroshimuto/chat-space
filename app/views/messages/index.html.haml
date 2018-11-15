@@ -14,7 +14,8 @@
           = link_to edit_group_path(@group) do
             edit
     .chat__form
-      = render @messages
+      .chat__messages
+        = render @messages
       .chat__box
         = form_for [@group, @message] do |f|
           = f.text_field :body, id:"upload-text", placeholder: " type message"
