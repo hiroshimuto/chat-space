@@ -16,8 +16,8 @@
     .chat__form
       = render "chat_main_space"
       .chat__box
-        = form_for "" do |f|
-          = f.text_field :text, id:"upload-text", placeholder: " type message"
+        = form_for [@group, @message] do |f|
+          = f.text_field :body, id:"upload-text", placeholder: " type message"
           %label.upload-label{for: "upload-icon"}
             %i.fa.fa-picture-o
             = f.file_field :image, id: "upload-icon"
