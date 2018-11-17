@@ -22,5 +22,5 @@
           %label.upload-label{for: "upload-icon"}
             %i.fa.fa-picture-o
             = f.file_field :image, id: "upload-icon"
-          = f.submit id:"button",value:"Send"
+          = f.submit id:"button",value:"Send", "data-disable-with": "Send"
 

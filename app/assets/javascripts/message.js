@@ -14,7 +14,7 @@ $(function(){
       </li>
     </div>
     `
-    return html;
+    $('.chat__messages').append(html);
   }
   $('.new_message').on('submit', function(e){
     e.preventDefault();
@@ -32,6 +32,10 @@ $(function(){
       var html = buildHTML(data);
       $('.chat__messages').append(html);
       $('#upload-text').val('')
+      $(function(){
+        $('.chat__messages').animate({scrollTop: $('.chat__messages')[0].scrollHeight}, 'slow' );
+        $("#button").removeAttr("disabled");
+      });
     })
   })
 });
