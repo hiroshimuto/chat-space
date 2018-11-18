@@ -2,7 +2,7 @@ $(function(){
   var search_result = $("#user-search-result")
   var addUser_result = $(".chat-group-users")
 
-
+//インクリメンタルサーチにともなうユーザーリストの追加
   function appendUser(user) {
     var html = `
     <div class="chat-group-user clearfix">
@@ -11,13 +11,13 @@ $(function(){
     </div>`
     search_result.append(html);
   }
-
+//該当ユーザーがいなかった時の関数
   function appendNoUser(user) {
     var html = `
       <p class="chat-group-user__name">${user}</p>`
     search_result.append(html);
   }
-
+//ユーザーリストから追加を押したらリストから消えて、チャットメンバーに追加する関数
   function appendMember(user_id, user_name) {
     var html = `
       <div class='chat-group-user clearfix js-chat-member' id='chat-group-user-8'>
@@ -28,14 +28,21 @@ $(function(){
     addUser_result.append(html);
   }
 
+//ユーザーリストから追加ボタンを押した時のイベント発火
   $(search_result).on("click", ".chat-group-user__btn--add",function(){
-    // var user = $(this).data();
     var user_id = $(this).data("user-id");
     var user_name = $(this).data("user-name");
     appendMember(user_id, user_name);
     $(this).parent().remove();
   });
 
+//追加されたユーザーの削除ボタンを押した時のイベント発火
+  $(addUser_result).on("click", ".chat-group-user__btn--remove",function(){
+    $(this).parent().remove();
+  });
+
+
+//インクリメンタルサーチのイベント発火と非同期通信
   $("#user-search-field").on("keyup", function(){
     var input = $("#user-search-field").val();
     $.ajax({
