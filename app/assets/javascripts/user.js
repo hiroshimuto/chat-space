@@ -52,8 +52,8 @@ $(function(){
       dataType: "json"
     })
     .done(function(users){
-      $("#user-search-result").empty();
-      if (users.length !== 0){
+      $(search_result).empty();
+      if (input.length !== 0){
         users.forEach(function(user){
           appendUser(user);
         });
