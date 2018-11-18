@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   def index
-    @users = User.where('name LIKE(?)', '%#{params[:keyword]}%').where.not(id: current_user.id)
+    @users = User.where('name LIKE(?)', "%#{params[:keyword]}%").where.not(id: current_user.id)
+    # usersテーブルからwhereメソッドであいまい検索をし、nameにキーワードが含まれる人を代入する、ただ自分自身は出さないために、idがcurrent_user.idのものは除く
     respond_to do |format|
       format.html
       format.json
