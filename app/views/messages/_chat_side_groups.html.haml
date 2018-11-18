@@ -9,8 +9,8 @@
       = link_to new_group_path do
         %i.fa.fa-edit
 .side__group
-  %ul.side__list
-    - current_user.groups.each do |group|
+  - current_user.groups.each do |group|
+    %ul.side__list
       = link_to group_messages_path(group) do
         %li.side__list-group
           = group.name
