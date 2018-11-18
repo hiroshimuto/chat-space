@@ -6,4 +6,4 @@
   %li.send-message
     - if message.body.present?
       %p= message.body
-    = image_tag message.image.url, class: 'lower-message__image' if message.image.present?
+    = image_tag message.image, class: 'lower-message__image' if message.image.present?
