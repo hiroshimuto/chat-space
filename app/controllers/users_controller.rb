@@ -1,4 +1,13 @@
 class UsersController < ApplicationController
+  def index
+    @users = User.where('name LIKE(?) and id != ?', "%#{params[:keyword]}%", current_user)
+    # usersテーブルからwhereメソッドであいまい検索をし、nameにキーワードが含まれる人を代入する、ただ自分自身は出さないために、idがcurrent_user.idのものは除く
+    respond_to do |format|
+      format.html
+      format.json
+    end
+  end
+
   def edit
   end
 
