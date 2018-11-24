@@ -2,7 +2,7 @@ $(function(){
   function buildHTML(message){
     var imagehtml = (message.image)? `<img class="lower-message__image" src="${message.image}">` : "";
     var html =`
-    <div class="chat__message">
+    <div class="chat__message" message-id=${message.id}>
       <li class="user-name">
         <p>${message.user_name}</p>
       </li>
@@ -11,6 +11,7 @@ $(function(){
       </li>
       <li class="send-message">
         <p>${message.body}</p>
+        ${imagehtml}
       </li>
     </div>
     `
@@ -32,10 +33,40 @@ $(function(){
       var html = buildHTML(data);
       $('.chat__messages').append(html);
       $('#upload-text').val('')
-      $(function(){
-        $('.chat__messages').animate({scrollTop: $('.chat__messages')[0].scrollHeight}, 'slow' );
-        $("#button").removeAttr("disabled");
-      });
+      $('.chat__messages').animate({scrollTop: $('.chat__messages')[0].scrollHeight}, 'slow' );
+      $("#button").removeAttr("disabled");
     })
-  })
+  });
+
+
+  // 自動更新
+  var interval = setInterval(function() {
+    var LastMsgId = $('.chat__message').last().attr('message-id');
+
+    if (window.location.href.match(/\/groups\/\d+\/messages/)) {
+      $.ajax({
+        url: window.location.href,
+        type: "GET",
+        data: { id: LastMsgId },
+        dataType: "json"
+      })
+
+      .done(function(data){
+        data.forEach(function(message){
+          buildHTML(message);
+        })
+        $('.chat__messages').animate({scrollTop: $('.chat__messages')[0].scrollHeight}, 'slow' );
+        $('#upload-text').val('')
+        $("#button").removeAttr("disabled");
+      })
+
+      .fail(function(){
+        alert("自動更新に失敗しました")
+      })
+
+    } else {
+      clearInterval(interval);
+    }
+  }, 5000 );
+
 });
